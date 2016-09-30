@@ -37,4 +37,4 @@ Note: The dotnetbot-prod sample is best for scenarios where there are multiple .
 
 Note: The current tools for creating [self-contained .NET Core apps](https://docs.microsoft.com/dotnet/articles/core/deploying/) is not yet optimal. These tools will be improved so that self-contained apps are much smaller.
 
-Note: There is a pattern of names ("-prod", "-selfcontained") established by the samples. They are not suggested as general purpose names, but were used so that the same dotnet-both sample could be used to demonstrate multiple scenarios.
+Note: There is a pattern of names ("-prod", "-selfcontained") established by the samples. They are not suggested as general purpose names, but were used so that the same dotnet-both sample could be used to demonstrate multiple scenarios. There is also a pattern of Dockerfile naming (Dockerfile, Dockerfile.nano, Dockerfile.servercore). This pattern of naming is only needed in cases where an app is deployed to multiple operating system. If your app has only one configuration, you should just use the default "Dockerfile" naming, which is much easier and skips the need for the docker `-f` argument.
