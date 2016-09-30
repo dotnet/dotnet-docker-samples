@@ -35,4 +35,6 @@ Note: The dotnetapp sample uses the Docker [ONBUILD](https://docs.docker.com/eng
 
 Note: The dotnetbot-prod sample is best for scenarios where there are multiple .NET Core containers being hosted in an environment, to enable sharing of base images, including the .NET Core Runtime. If there is just one or a few .NET Core containers, then the dotnetbot-selfcontained sample could be a better choice.
 
-Note: The current tools for creasing [self-contained .NET Core apps](https://docs.microsoft.com/dotnet/articles/core/deploying/) is not yet optimal. These tools will be improved so that self-contained apps are much smaller.
+Note: The current tools for creating [self-contained .NET Core apps](https://docs.microsoft.com/dotnet/articles/core/deploying/) is not yet optimal. These tools will be improved so that self-contained apps are much smaller.
+
+Note: There is a pattern of names ("-prod", "-selfcontained") established by the samples. They are not suggested as general purpose names, but were used so that the same dotnet-both sample could be used to demonstrate multiple scenarios.
