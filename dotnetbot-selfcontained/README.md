@@ -23,6 +23,8 @@ Follow these steps to try out this sample. The instructions are intended to be O
 6. Publish the application to ensure that all dependencies are included in the bin directory: `dotnet publish`
 7. Optionally, you can run the application from the publish directory (which is what you will use for the Docker image): `dotnet bin/Debug/netcoreapp1.0/publish/dotnetbot-selfcontained.dll`
 
+Note: Self-contained apps are operating system- and chip-specific after they are published. You can see that the Dockerfiles are configured to select specific assets produced by the publish verb.
+
 **Dockerize the application**
 
 8. Build the Docker image

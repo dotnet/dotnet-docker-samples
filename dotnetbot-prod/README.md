@@ -16,13 +16,11 @@ Follow these steps to try out this sample. The instructions are intended to be O
 **Build and Run the application locally**
 
 3. Restore dependencies: `dotnet restore`
-4. Run application: `dotnet run`
-5. Alternatively, you can build and directly run your application with the following two commands:
-   - `dotnet build`
-   - `dotnet bin/Debug/netcoreapp1.0/dotnetbot-prod.dll`
+4. You can optionally run the application to see what it does: 'dotnet run'.
+5. Build the application: `dotnet build -c Release`
 6. Publish the application to ensure that all dependencies are included in the bin directory: `dotnet publish`
    - Publishing is not needed in this example since the app has no dependencies beyond the .NET Runtime, but most applications won't be this simple.
-7. Optionally, you can run the application from the publish directory (which is what you will use for the Docker image): `dotnet bin/Debug/netcoreapp1.0/publish/dotnetbot-prod.dll`.
+7. Optionally, you can run the application from the publish directory (which is what you will use for the Docker image): `dotnet bin/Release/Debug/netcoreapp1.0/publish/dotnetbot-prod.dll`.
 
 **Dockerize the application**
 
