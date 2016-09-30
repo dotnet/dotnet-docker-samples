@@ -26,11 +26,11 @@ Note: The dotnetapp sample uses the Docker [ONBUILD](https://docs.docker.com/eng
 
 **Development**
 
-- [dotnetbot] - This sample is good for development since it performs `dotnet` commands on your behalf, reducing the time it takes to create Docker images (assuming you make changes and then test them in a container, iteratively). It is very similar to the dotnetapp sample above, but doesn't prescribe filesname (you can change them for your app).
+- [dotnetbot](dotnetbot) - This sample is good for development since it performs `dotnet` commands on your behalf, reducing the time it takes to create Docker images (assuming you make changes and then test them in a container, iteratively). It is very similar to the dotnetapp sample above, but doesn't prescribe filesname (you can change them for your app).
 
 **Production**
 
-- [dotnetbot-prod](dotnetbot-prod)(dotnetbot-prod) - This sample is good for production since it does not include the .NET CLI tools but only the .NET Core Runtime. Most apps only need the runtime, reducing the size of your .NET Core base image.
+- [dotnetbot-prod](dotnetbot-prod) - This sample is good for production since it does not include the .NET CLI tools but only the .NET Core Runtime. Most apps only need the runtime, reducing the size of your .NET Core base image.
 - [dotnetbot-selfcontained](dotnetbot-selfcontained)- This sample is also good for production scenarios. It's  for deploying [self-contained .NET Core apps](https://docs.microsoft.com/dotnet/articles/core/deploying/), which include .NET Core as part of the app and not as a centrally installed component in a base image.
 
 Note: The dotnetbot-prod sample is best for scenarios where there are multiple .NET Core containers being hosted in an environment, to enable sharing of base images, including the .NET Core Runtime. If there is just one or a few .NET Core containers, then the dotnetbot-selfcontained sample could be a better choice.
