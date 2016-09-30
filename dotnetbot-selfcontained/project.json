@@ -1,0 +1,19 @@
+﻿{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
+  "dependencies": {},
+  "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": "1.0.1"
+      }
+    }
+  },
+  "runtimes" :{
+    "win10-x64": {},
+    "ubuntu.14.04-x64": {}
+  }
+}

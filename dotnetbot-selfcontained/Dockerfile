@@ -1,0 +1,4 @@
+FROM microsoft/dotnet
+COPY bin\Debug\netcoreapp1.0\win10-x64\publish app
+WORKDIR app
+ENTRYPOINT ["dotnetbot-selfcontained.exe"]       
