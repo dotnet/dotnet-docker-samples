@@ -20,7 +20,7 @@ You can pick the sample that best fits the scenario you are interested in. You w
 
 **Getting Started**
 
-- [dotnetapp](dotnetapp) - This sample is the best one to start with. You don't need much knowledge of .NET Core or Docker.
+- [dotnetapp-onbuild](dotnetapp-onbuild) - This sample is the best one to start with. You don't need much knowledge of .NET Core or Docker.
 
 Note: The dotnetapp sample uses the Docker [ONBUILD](https://docs.docker.com/engine/reference/builder/#onbuild) pattern, which makes it easy to create a Docker image by prescribing file names and locations. You are not encouraged to use this example for more than developing familiarity with Docker and .NET Core, not for development or production.
 
