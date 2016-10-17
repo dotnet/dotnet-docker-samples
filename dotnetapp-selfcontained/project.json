@@ -1,4 +1,5 @@
 ﻿{
+  "name": "dotnetapp",
   "version": "1.0.0-*",
   "buildOptions": {
     "debugType": "portable",
@@ -14,6 +15,7 @@
   },
   "runtimes" :{
     "win10-x64": {},
-    "ubuntu.14.04-x64": {}
+    "debian.8-x64": {},
+    "osx.10.12-x64": {}
   }
 }

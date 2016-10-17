@@ -1,6 +1,0 @@
-FROM microsoft/dotnet:nanoserver
-COPY . app
-WORKDIR app
-RUN dotnet restore
-RUN dotnet build -c Release
-ENTRYPOINT ["dotnet", "bin/Release/netcoreapp1.0/dotnetbot.dll"]

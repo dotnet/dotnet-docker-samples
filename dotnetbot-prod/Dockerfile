@@ -1,4 +1,0 @@
-FROM microsoft/dotnet
-COPY bin/Release/netcoreapp1.0/publish app
-WORKDIR app
-ENTRYPOINT ["dotnet", "dotnetbot-prod.dll"]
