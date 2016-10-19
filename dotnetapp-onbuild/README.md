@@ -10,7 +10,7 @@ Follow these steps to try out this sample. The instructions are intended to be O
 
 **Preparing your Environment**
 
-1. Git clone this repository or otherwise copy this sample to your machine: `git clone https://github.com/dotnet/docker-samples/`
+1. Git clone this repository or otherwise copy this sample to your machine: `git clone https://github.com/dotnet/dotnet-docker-samples`
 2. Navigate to this sample on your machine at the command prompt or terminal.
 
 **Build and run Docker image**
