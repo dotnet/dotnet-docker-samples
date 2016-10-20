@@ -7,5 +7,5 @@ RUN dotnet restore
 
 # copy and build everything else
 COPY . .
-RUN dotnet build -c Release
-ENTRYPOINT ["dotnet", "bin/Release/netcoreapp1.0/dotnetapp.dll"]
+RUN dotnet publish -c Release -o out
+ENTRYPOINT ["dotnet", "out/dotnetapp.dll"]

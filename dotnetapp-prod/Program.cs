@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 public static class Program
 {
@@ -13,7 +14,10 @@ public static class Program
 
         Console.WriteLine(GetBot(message));
         Console.WriteLine();
-        Console.WriteLine($"From: {System.AppContext.BaseDirectory}");
+        Console.WriteLine($"Time: {DateTime.Now.ToString()}");
+        Console.WriteLine();
+        Console.WriteLine($"OS: {RuntimeInformation.OSDescription}");
+        Console.WriteLine();
   }
 
   public static string GetBot(string message) 

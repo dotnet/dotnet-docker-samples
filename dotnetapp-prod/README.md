@@ -25,8 +25,8 @@ The instructions assume you already know how to target Linux or Windows containe
 
 **Publish the application**
 
-1. Publish the application to ensure that all dependencies are included in the bin/../publish directory. Use the following command: `dotnet publish -c Release`.
-2 . Optionally, you can run/test the application from the publish directory using the following command: `dotnet bin\Release\netcoreapp1.0\publish\dotnetapp.dll`. 
+1. Publish the application to ensure that all dependencies are included. Use the following command (puts file in the location the Dockerfile expects): `dotnet publish -c Release -o out`.
+2 . Optionally, you can run/test the application from the publish directory using the following command: `dotnet out\dotnetapp.dll`. 
 
 **Build and run Docker image**
 

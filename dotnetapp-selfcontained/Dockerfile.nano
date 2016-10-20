@@ -1,4 +1,4 @@
 FROM microsoft/nanoserver:10.0.14393.321
 WORKDIR /app
-COPY bin/Release/netcoreapp1.0/win10-x64/publish .
+COPY out .
 ENTRYPOINT ["dotnetapp.exe"]    

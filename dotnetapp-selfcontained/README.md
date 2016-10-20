@@ -25,11 +25,11 @@ The instructions assume you already know how to target Linux or Windows containe
 
 **Publish the application**
 
-1. Publish the application to ensure that all dependencies are included in the bin/../publish directory. This is necessary for the application to be "self contained".
-   - If publishing for Debian, use the following command: `dotnet publish -c Release -r debian.8-x64`
-   - If publishing for Windows, use the following command: `dotnet publish -c Release -r win10-x64`
+1. Publish the application to ensure that all dependencies are included.
+   - If publishing for Debian, use the following command: `dotnet publish -c Release -r debian.8-x64 -o out`
+   - If publishing for Windows, use the following command: `dotnet publish -c Release -r win10-x64 -o out`
    - Note, you can skip the `-r` argument if your current and target operating system are the same (or same enough).
-2 . Optionally, you can run/test the application from the publish directory using the following command: `dotnet bin\Release\netcoreapp1.0\win10-x64\publish\dotnetapp.dll`. 
+2 . Optionally, you can run/test the application from the publish directory using the following command: `dotnet out\dotnetapp.dll`. 
    - This will only work if your current and target operating are the same (or same enough).
 
 Note: Self-contained apps are operating system- and chip-specific after they are published. You can see that the Dockerfiles are configured to select specific assets produced by the publish verb. The -r argument instructs the publish command to select the correct native assets to include. See [.NET Core Runtime IDentifier (RID) catalog](https://docs.microsoft.com/dotnet/articles/core/rid-catalog) for more information.
