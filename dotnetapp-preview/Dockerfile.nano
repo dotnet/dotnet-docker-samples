@@ -1,0 +1,11 @@
+FROM microsoft/dotnet-nightly:rel-1.0.0-preview2.1-nanoserver-sdk
+WORKDIR /app
+
+# copy project.json and restore as distinct layers
+COPY project.json ./
+RUN dotnet restore
+
+# copy and build everything else
+COPY . ./
+RUN dotnet publish -c Release -o out
+ENTRYPOINT ["dotnet", "out/dotnetapp.dll"]

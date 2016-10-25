@@ -1,9 +1,9 @@
-dotnetapp-dev Sample
-====================
+dotnetapp-preview Sample
+========================
 
-The dotnetapp-dev sample demonstrates basic "hello world" usage of .NET Core. It shows you how you can build and deploy it relying on the .NET Core SDK. 
+The dotnetapp-preview sample demonstrates basic "hello world" usage of .NET Core. It shows you how you can build and deploy it relying on a preview version of the .NET Core SDK. It is the same as the [dotnetapp-dev](../dotnetapp-preview) sample, but has been updated to require a later version of the .NET Core SDK and depend on a Docker image from the [dotnet-nightly](https://hub.docker.com/r/microsoft/dotnet-nightly/) Docker Hub repo. This repo is where preview .NET Core versions are published.
 
-You don't even need .NET Core installed on your local machine to use it. It's a great way to get started with .NET Core. It's also a good option for iterative development if you want to use a container as your development environment.
+You don't even need .NET Core installed on your local machine to use this sample. It's a great way to get started with .NET Core. It's also a good option for iterative development if you want to use a container as your development environment.
 
 Script
 ------
