@@ -18,12 +18,6 @@ Docker uses [docker/whalesay](https://hub.docker.com/r/docker/whalesay/) for its
 
 You can pick the sample that best fits the scenario you are interested in. You will notice that each sample supports multiple operating systems via multiple Dockerfiles. The instructions for each sample describe how to target Windows or Linux Docker images, from Windows, Linux or macOS.
 
-**Getting Started**
-
-- [dotnetapp-onbuild](dotnetapp-onbuild) - This sample is the best one to start with. You don't need much knowledge of .NET Core or Docker.
-
-Note: The dotnetapp sample uses the Docker [ONBUILD](https://docs.docker.com/engine/reference/builder/#onbuild) pattern, which makes it easy to create a Docker image by prescribing file names and locations. You are not encouraged to use this example for more than developing familiarity with Docker and .NET Core, not for development or production.
-
 **Development**
 
 - [dotnetapp-dev](dotnetapp-dev) - This sample is good for development since it performs `dotnet` commands on your behalf, reducing the time it takes to create Docker images (assuming you make changes and then test them in a container, iteratively). It is very similar to the dotnetapp sample above, but doesn't prescribe filenames (you can change them for your app).
