@@ -9,9 +9,8 @@ These samples rely on (AKA 'FROM') the [.NET Core Docker images](https://hub.doc
 
 - .NET Core distribution - .NET Core SDK, .NET Core Runtime, .NET Core dependencies only
 - Operating System - Windows and Linux
-- Docker pattern - Regular vs. [ONBUILD](https://docs.docker.com/engine/reference/builder/#onbuild)
 
-Docker uses [docker/whalesay](https://hub.docker.com/r/docker/whalesay/) for its samples. The .NET Core Team at Microsoft uses [dotnetbot](https://github.com/dotnet-bot). dotnetbot is the mascot for .NET open source projects. Got something to say? Both whalesay and dotnetbot are great listeners. 
+Docker uses [docker/whalesay](https://hub.docker.com/r/docker/whalesay/) for its samples. The .NET Core Team at Microsoft uses [dotnetbot](https://github.com/dotnet-bot). dotnetbot is the mascot for .NET open source projects. Got something to say? Both whalesay and dotnetbot are great listeners.
 
 .NET Core Samples
 -----------------
