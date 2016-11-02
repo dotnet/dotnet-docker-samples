@@ -13,9 +13,9 @@ public static class Program
         }
 
         Console.WriteLine(GetBot(message));
-        Console.WriteLine();
-        Console.WriteLine($"Time: {DateTime.Now.ToString()}");
-        Console.WriteLine();
+        Console.WriteLine("**Environment**");
+        Console.WriteLine($"Platform: .NET Core 1.0");
+        Console.WriteLine($"Bitness: {RuntimeInformation.OSArchitecture}");
         Console.WriteLine($"OS: {RuntimeInformation.OSDescription}");
         Console.WriteLine();
   }
@@ -65,5 +65,4 @@ public static class Program
 ";
   return bot;
   }
-
 }
