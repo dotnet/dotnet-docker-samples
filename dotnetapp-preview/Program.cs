@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using static System.Console;
 
 public static class Program
 {
@@ -12,12 +13,11 @@ public static class Program
           message = String.Join(" ",args);
         }
 
-        Console.WriteLine(GetBot(message));
-        Console.WriteLine("**Environment**");
-        Console.WriteLine($"Platform: .NET Core 1.1");
-        Console.WriteLine($"Bitness: {RuntimeInformation.OSArchitecture}");
-        Console.WriteLine($"OS: {RuntimeInformation.OSDescription}");
-        Console.WriteLine();
+        WriteLine(GetBot(message));
+        WriteLine("**Environment**");
+        WriteLine($"Platform: .NET Core 1.1");
+        WriteLine($"OS: {RuntimeInformation.OSDescription}");
+        WriteLine();
   }
 
   public static string GetBot(string message) 
