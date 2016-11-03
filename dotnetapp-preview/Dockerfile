@@ -1,12 +1,4 @@
-FROM microsoft/dotnet:1.0.0-preview2.1-sdk
-
+FROM microsoft/dotnet:1.1.0-preview1-runtime 
 WORKDIR /app
-
-# copy project.json and restore as distinct layers
-COPY project.json .
-RUN dotnet restore
-
-# copy and build everything else
-COPY . .
-RUN dotnet publish -c Release -o out
-ENTRYPOINT ["dotnet", "out/dotnetapp.dll"]
+COPY out .
+ENTRYPOINT ["dotnet", "dotnetapp.dll"]

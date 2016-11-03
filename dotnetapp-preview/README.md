@@ -1,25 +1,45 @@
 dotnetapp-preview Sample
 ========================
 
-The dotnetapp-preview sample demonstrates basic "hello world" usage of .NET Core. It shows you how you can build and deploy it relying on a preview version of the .NET Core SDK. It is the same as the [dotnetapp-dev](../dotnetapp-preview) sample, but has been updated to require a later version of the .NET Core SDK and depend on a Docker image from the [dotnet-nightly](https://hub.docker.com/r/microsoft/dotnet-nightly/) Docker Hub repo. This repo is where preview .NET Core versions are published.
+The dotnetapp-preview sample demonstrates how you can build and run the dotnetapp sample using the [.NET Core Runtime 1.1.0-preview1 Docker image](https://hub.docker.com/r/microsoft/dotnet/). It's a great option for trying the .NET Core 1.1 version before it is released. It is the same as the [dotnetapp-prod](../donetapp-prod) image, except that it relies on a later .NET Core version.
 
-You don't even need .NET Core installed on your local machine to use this sample. It's a great way to get started with .NET Core. It's also a good option for iterative development if you want to use a container as your development environment.
+The instructions assume that you already have [.NET Core 1.1 Preview 1](https://github.com/dotnet/core/blob/master/release-notes/preview-download.md) and [Git](https://git-scm.com/downloads) and [Docker](https://www.docker.com/products/docker) clients installed. They also assume you already know how to target Linux or Windows containers. Do try both image types. You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers).
 
-Script
-------
+Instructions
+------------
 
-Follow these steps to try out this sample. The instructions are operating system agnostic unless called out. They assume that you already have [Git](https://git-scm.com/downloads) and [Docker](https://www.docker.com/products/docker) clients installed.
+First, prepare your environment by cloning the repository and navigating to the sample:
 
-The instructions assume you already know how to target Linux or Windows containers. Do try both, however, you need your environment correctly configured. You can only try Windows containers on the latest Windows 10 or Windows Server 2016.
+```console
+git clone https://github.com/dotnet/dotnet-docker-samples/
+cd dotnet-docker-samples/dotnetapp-preview
+```
 
-**Preparing your Environment**
+Follow these steps to run the sample locally:
 
-1. Git clone this repository or otherwise copy this sample to your machine: `git clone https://github.com/dotnet/dotnet-docker-samples/`
-2. Navigate to this sample on your machine at the command prompt or terminal.
+```console
+dotnet restore
+dotnet run Hello .NET Core from Docker
+```
 
-**Build and run Docker image**
+Follow these steps to run this sample in a Linux container:
 
-1. Build the Docker image
-   - Commandline for Mac and Linux: `docker build -t dotnetapp .`
-   - Commandline for Windows to build a Nano image: `docker build -t dotnetapp -f Dockerfile.nano .`
-2. Run the application in the container: `docker run dotnetapp Hello .NET Core from Docker`
+```console
+dotnet restore
+dotnet publish -c Release -o out
+docker build -t dotnetapp .
+docker run dotnetapp Hello .NET Core from Docker
+```
+
+Follow these steps to run this sample in a  Windows container:
+
+```console
+dotnet restore
+dotnet publish -c Release -o out
+docker build -t dotnetapp -f Dockerfile.nano .
+docker run dotnetapp Hello .NET Core from Docker
+```
+Notes
+-----
+
+Preview releases require both a preview .NET Core Runtime, but also preview packages. You can get the preview packages from [.NET Core myget feed](https://dotnet.myget.org/gallery/dotnet-core). This sample is configured to use that feed via [nuget.config](nuget.config).

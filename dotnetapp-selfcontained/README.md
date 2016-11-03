@@ -1,42 +1,76 @@
 dotnetapp-selfcontained Sample
 ==============================
 
-The dotnetapp-selfcontained sample demonstrates basic "hello world" usage of .NET Core. It shows you how you can build and deploy it as self-contained .NET Core app relying on the operating system image.
+The dotnetapp-selfcontained sample demonstrates how you can build and run the dotnetapp sample as a [self-contained .NET Core application](https://docs.microsoft.com/en-us/dotnet/articles/core/deploying/) that relies only on an operating system image (plus dependencies). It's a good option for creating a Docker image for production.
 
-Script
-------
+The instructions assume that you already have [.NET Core](https://dot.net/core) and [Git](https://git-scm.com/downloads) and [Docker](https://www.docker.com/products/docker) clients installed. They also assume you already know how to target Linux or Windows containers. Do try both image types. You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers).
 
-Follow these steps to try out this sample. The instructions are operating system agnostic unless called out. They assume that you already have the [.NET Core SDK](https://dot.net/core) and [Git](https://git-scm.com/downloads) and [Docker](https://www.docker.com/products/docker) clients installed.
+Instructions
+------------
 
-The instructions assume you already know how to target Linux or Windows containers. Do try both, however, you need your environment correctly configured. You can only try Windows containers on the latest Windows 10 or Windows Server 2016.
+First, prepare your environment by cloning the repository and navigating to the sample:
 
-**Preparing your Environment**
+```console
+git clone https://github.com/dotnet/dotnet-docker-samples/
+cd dotnet-docker-samples/dotnetapp-selfcontained
+```
 
-1. Git clone this repository or otherwise copy this sample to your machine: `git clone https://github.com/dotnet/dotnet-docker-samples/`
-2. Navigate to this sample on your machine at the command prompt or terminal.
+Follow these steps to run the sample locally:
 
-**Build and Test the application locally**
+```console
+dotnet restore
+dotnet run Hello .NET Core from Docker
+```
 
-1. Restore dependencies: `dotnet restore`
-2. Run the application: `dotnet run`
-   - Alternatively, you can test run your application with the following two commands:
-   - `dotnet build`
-   - `dotnet bin/Debug/netcoreapp1.0/dotnetapp.dll`
+Follow these steps to build and run the sample locally as a self-contained app on Linux:
 
-**Publish the application**
+```console
+dotnet restore
+dotnet publish -c Release -o out
+./out/dotnetapp
+```
 
-1. Publish the application to ensure that all dependencies are included.
-   - If publishing for Debian, use the following command: `dotnet publish -c Release -r debian.8-x64 -o out`
-   - If publishing for Windows, use the following command: `dotnet publish -c Release -r win10-x64 -o out`
-   - Note, you can skip the `-r` argument if your current and target operating system are the same (or same enough).
-2 . Optionally, you can run/test the application from the publish directory using the following command: `dotnet out\dotnetapp.dll`. 
-   - This will only work if your current and target operating are the same (or same enough).
+Follow these steps to build and run the sample locally as a self-contained app on macOS Sierra:
 
-Note: Self-contained apps are operating system- and chip-specific after they are published. You can see that the Dockerfiles are configured to select specific assets produced by the publish verb. The -r argument instructs the publish command to select the correct native assets to include. See [.NET Core Runtime IDentifier (RID) catalog](https://docs.microsoft.com/dotnet/articles/core/rid-catalog) for more information.
+```console
+dotnet restore
+dotnet publish -c Release -o out -r osx.10.11-x64
+./out/dotnetapp
+```
 
-**Build and run Docker image**
+Note: The macOS Sierra instructions should be the same as the Linux instructions. Sierra is not yet fully supported, so requires workarounds until .NET Core is updated.
 
-1. Build the Docker image
-   - Commandline to create Docker image for Linux: `docker build -t dotnetbot .`
-   - Commandline to create Docker image for Nano: `docker build -t dotnetbot -f Dockerfile.nano .`
-2. Run the image: `docker run dotnetbot Hello .NET Core from Docker`
+Follow these steps to build and run the sample locally as a self-contained app on Windows:
+
+```console
+dotnet restore
+dotnet publish -c Release -o out
+out\dotnetapp.exe
+```
+
+Follow these steps to run this sample in a Linux container:
+
+```console
+dotnet restore
+dotnet publish -c Release -o out -r debian.8-x64
+docker build -t dotnetapp .
+docker run dotnetapp Hello .NET Core from Docker
+```
+
+Follow these steps to run this sample in a  Windows container:
+
+```console
+dotnet restore
+dotnet publish -c Release -o out -r win10-x64
+docker build -t dotnetapp -f Dockerfile.nano .
+docker run dotnetapp Hello .NET Core from Docker
+```
+
+Notes
+-----
+
+Self-contained applications are very similar to framework-dependent applications from a source code perspective. They only differ in terms of their reference to the .NET Core metapackage. Framework-dependent applications include a `"type": "platform"' property and standalone apps do not. The commands used to publish both apps are the same.
+
+Self-contained apps are operating system- and chip-specific after they are published. The -r argument instructs the publish command to select the correct native assets to include. See [.NET Core Runtime IDentifier (RID) catalog](https://docs.microsoft.com/dotnet/articles/core/rid-catalog) for more information. 
+
+The `runtimes` node in project.json lists the suppored RIDs for a given app. A large set is listed in this sample to enable it to be uses on multiple operating systems. 
