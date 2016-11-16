@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:1.0.0-preview2-nanoserver-sdk
+FROM microsoft/dotnet:1.0-sdk-projectjson-nanoserver
 WORKDIR /app
 
 # copy project.json and restore as distinct layers

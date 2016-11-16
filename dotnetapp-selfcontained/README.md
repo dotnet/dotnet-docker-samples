@@ -61,7 +61,7 @@ Follow these steps to run this sample in a  Windows container:
 
 ```console
 dotnet restore
-dotnet publish -c Release -o out -r win10-x64
+dotnet publish -c Release -o out -r win7-x64
 docker build -t dotnetapp -f Dockerfile.nano .
 docker run dotnetapp Hello .NET Core from Docker
 ```

@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:1.1.0-preview1-runtime 
+FROM microsoft/dotnet:1.1-runtime-nanoserver
 WORKDIR /app
 COPY out .
 ENTRYPOINT ["dotnet", "dotnetapp.dll"]
