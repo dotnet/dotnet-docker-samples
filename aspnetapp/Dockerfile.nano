@@ -1,5 +1,5 @@
 FROM microsoft/dotnet:nanoserver
 WORKDIR /app
 ENV ASPNETCORE_URLS http://+:80
-COPY . .
-ENTRYPOINT ["dotnet", "bin/Debug/netcoreapp1.1/publish/aspnetapp.dll"]
+COPY published ./
+ENTRYPOINT ["dotnet", "aspnetapp.dll"]

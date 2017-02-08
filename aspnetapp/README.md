@@ -24,17 +24,17 @@ dotnet run
 Follow these steps to run this sample in a Linux container:
 
 ```console
-dotnet restore
+dotnet publish -o published
 docker build -t aspnetapp .
-docker run -it -d -p 80:80 aspnetapp
+docker run -d -p 80:80 aspnetapp
 ```
 
 Follow these steps to run this sample in a  Windows container:
 
 ```console
-dotnet restore
+dotnet publish -o published
 docker build -t aspnetapp -f Dockerfile.nano .
-docker run -it -d -p 80:80 aspnetapp
+docker run -d -p 80:80 aspnetapp
 ```
 
 ## View your web page running from your container
