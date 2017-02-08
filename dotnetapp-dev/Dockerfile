@@ -1,8 +1,8 @@
-FROM microsoft/dotnet:1.0-sdk-projectjson
+FROM microsoft/dotnet:1.1-sdk-msbuild
 WORKDIR /app
 
-# copy project.json and restore as distinct layers
-COPY project.json .
+# copy csproj and restore as distinct layers
+COPY dotnetapp.csproj .
 RUN dotnet restore
 
 # copy and build everything else

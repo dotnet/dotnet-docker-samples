@@ -35,10 +35,6 @@ The following samples show different ways to use .NET Core images.
 - [dotnetapp-current](dotnetapp-current) - This sample demonstrates how to configure an application to use the .NET Core 1.1 image. Both project.json and the Dockerfile have been updated to depend on .NET Core 1.1. This sample is the same as [dotnetapp-prod](dotnetapp-prod) with the exception of relying on a later .NET Core version.
 - [aspnetapp](aspnetapp) - This samples demonstrates a Dockerized ASP.NET Core Web App.
 
-### Preview
-
-- [dotnetapp-dev-preview](dotnetapp-dev-preview) - This sample demonstrates the support for msbuild based projects.  This sample is good for development and building since it relies on the .NET Core SDK image. It performs `dotnet` commands on your behalf, reducing the time it takes to create Docker images (assuming you make changes and then test them in a container, iteratively).
-
 Notes
 -----
 
