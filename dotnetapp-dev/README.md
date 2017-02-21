@@ -3,7 +3,7 @@ dotnetapp-dev Sample
 
 The dotnetapp-dev sample demonstrates how you can build and run the dotnetapp sample using the [.NET Core SDK Docker image](https://hub.docker.com/r/microsoft/dotnet/). It's a great option for iterative development if you want to use a container as your development environment. It's also great way to get started with .NET Core, because of the convenience and simplicity. You don't even need .NET Core installed on your local machine to use it.  
 
-The instructions assume that you already have [Git](https://git-scm.com/downloads) and [Docker](https://www.docker.com/products/docker) clients installed. They also assume you already know how to target Linux or Windows containers. Please do try both image types. You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers).
+The instructions assume that you already have [.NET Core 1.1 RC4](https://github.com/dotnet/core/blob/master/release-notes/rc4-download.md), [Git](https://git-scm.com/downloads), and [Docker](https://www.docker.com/products/docker) installed. They also assume you already know how to target Linux or Windows containers. Please do try both image types. You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers).
 
 Instructions
 ------------

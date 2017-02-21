@@ -3,11 +3,11 @@
 
 This repo contains samples that demonstrate various .NET Core Docker configurations, which you can use as the basis of your own Docker images. These samples depend on the [.NET Core Docker images](https://hub.docker.com/r/microsoft/dotnet/) on Docker Hub, provided by the .NET Team at Microsoft.
 
-Docker uses [docker/whalesay](https://hub.docker.com/r/docker/whalesay/) as a getting started sample. The .NET Core Team at Microsoft uses [dotnetbot](https://github.com/dotnet-bot), which is the mascot for .NET open source projects. Got something to say? Both whalesay and dotnetbot are great listeners.
+Docker uses [docker/whalesay](https://hub.docker.com/r/docker/whalesay/) as a getting started sample. The .NET Core Team at Microsoft uses [dotnetbot](https://github.com/dotnet-bot), which is the mascot for .NET open source projects. Got something to say? Both whalesay and dotnetbot are great listeners. The [dotnetapp-dev](dotnetapp-dev), [dotnetapp-prod](dotnetapp-prod), [dotnetapp-selfcontained](dotnetapp-selfcontained), and [dotnetapp-current](dotnetapp-current) samples all simply print a "Welcome!" message to the console. The [aspnetapp](aspnetapp) sample starts a basic ASP.NET Core website running in a container that you can browse to locally.
 
 You can pick the sample that best fits the scenario you are interested in. The instructions for each sample describe how to target [Windows](http://aka.ms/windowscontainers) or Linux Docker images, from Windows, Linux or macOS.
 
-You need to have the [.NET Core SDK](https://dot.net/core) and [Git](https://git-scm.com/downloads) and [Docker client](https://www.docker.com/products/docker) clients installed to use these samples.
+You need to have the [.NET Core SDK RC4](https://github.com/dotnet/core/blob/master/release-notes/rc4-download.md) and [Git](https://git-scm.com/downloads) and [Docker client](https://www.docker.com/products/docker) clients installed to use these samples.
 
 ### Getting Started
 

@@ -3,7 +3,7 @@ dotnetapp-prod Sample
 
 The dotnetapp-prod sample demonstrates how you can build and run the dotnetapp sample using the [.NET Core Runtime Docker image](https://hub.docker.com/r/microsoft/dotnet/). It's a great option for creating a Docker image for production.
 
-The instructions assume that you already have [.NET Core](https://dot.net/core) and [Git](https://git-scm.com/downloads) and [Docker](https://www.docker.com/products/docker) clients installed. They also assume you already know how to target Linux or Windows containers. Do try both image types. You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers).
+The instructions assume that you already have [.NET Core 1.0 RC4](https://github.com/dotnet/core/blob/master/release-notes/rc4-download.md) and [Git](https://git-scm.com/downloads) and [Docker](https://www.docker.com/products/docker) clients installed. They also assume you already know how to target Linux or Windows containers. Do try both image types. You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers).
 
 Instructions
 ------------
