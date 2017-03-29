@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:1.1-sdk-msbuild-nanoserver
+FROM microsoft/dotnet:1.1-sdk-nanoserver
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
