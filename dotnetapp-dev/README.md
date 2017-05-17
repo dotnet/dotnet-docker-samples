@@ -22,16 +22,9 @@ dotnet restore
 dotnet run Hello .NET Core
 ```
 
-Follow these steps to run this sample in a Linux container:
+Follow these steps to run this sample in a Linux or Windows container environment:
 
 ```console
 docker build -t dotnetapp .
-docker run dotnetapp Hello .NET Core from Docker
-```
-
-Follow these steps to run this sample in a  Windows container:
-
-```console
-docker build -t dotnetapp -f Dockerfile.nano .
 docker run dotnetapp Hello .NET Core from Docker
 ```
