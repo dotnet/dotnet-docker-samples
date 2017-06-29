@@ -51,8 +51,6 @@ out\dotnetapp.exe
 Follow these steps to run this sample in a Linux container:
 
 ```console
-dotnet restore
-dotnet publish -c Release -o out -r debian.8-x64
 docker build -t dotnetapp .
 docker run dotnetapp Hello .NET Core from Docker
 ```
@@ -60,8 +58,6 @@ docker run dotnetapp Hello .NET Core from Docker
 Follow these steps to run this sample in a  Windows container:
 
 ```console
-dotnet restore
-dotnet publish -c Release -o out -r win7-x64
 docker build -t dotnetapp -f Dockerfile.nano .
 docker run dotnetapp Hello .NET Core from Docker
 ```

@@ -1,4 +1,16 @@
+FROM microsoft/dotnet:1.0-sdk AS build-env
+WORKDIR /app
+
+# copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+
+# copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out -r win7-x64
+
+# build runtime image
 FROM microsoft/nanoserver:10.0.14393.1358
 WORKDIR /app
-COPY out .
+COPY --from=build-env /app/out ./
 ENTRYPOINT ["dotnetapp.exe"]

@@ -15,7 +15,7 @@ public static class Program
 
         WriteLine(GetBot(message));
         WriteLine("**Environment**");
-        WriteLine($"Platform: .NET Core 1.0");
+        WriteLine($"Platform: .NET Core 1.1");
         WriteLine($"OS: {RuntimeInformation.OSDescription}");
         WriteLine();
   }

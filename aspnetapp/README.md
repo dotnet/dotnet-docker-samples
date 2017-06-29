@@ -21,19 +21,10 @@ dotnet restore
 dotnet run
 ```
 
-Follow these steps to run this sample in a Linux container:
+Follow these steps to run this sample in a Linux or Windows container:
 
 ```console
-dotnet publish -o published
 docker build -t aspnetapp .
-docker run -d -p 80:80 aspnetapp
-```
-
-Follow these steps to run this sample in a  Windows container:
-
-```console
-dotnet publish -o published
-docker build -t aspnetapp -f Dockerfile.nano .
 docker run -d -p 80:80 aspnetapp
 ```
 
