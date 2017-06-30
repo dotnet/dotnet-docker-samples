@@ -34,6 +34,9 @@ The following samples show different ways to use .NET Core images.
 - [dotnetapp-selfcontained](dotnetapp-selfcontained) - This sample is also good for production scenarios since it relies on an operating system image (without .NET Core). [Self-contained .NET Core apps](https://docs.microsoft.com/dotnet/articles/core/deploying/) include .NET Core as part of the app and not as a centrally installed component in a base image.
 - [aspnetapp](aspnetapp) - This samples demonstrates a Dockerized ASP.NET Core Web App.
 
+### Multi-Stage Build
+The aspnet, production, and self-contained apps all use [multi-stage build](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) Dockerfiles. This enables the app to build in a .NET SDK container and copy the published output to a lightweight production container that uses only the .NET runtime image as its base image. The Dockerfiles of these samples have two different `FROM` lines because they use different base images in different stages of execution in order to produce the slimmest image for production use. See [Mutli-stage build announcement](https://github.com/dotnet/announcements/issues/18).
+
 Notes
 -----
 
