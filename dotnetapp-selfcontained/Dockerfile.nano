@@ -10,7 +10,7 @@ COPY . ./
 RUN dotnet publish -c Release -o out -r win7-x64
 
 # build runtime image
-FROM microsoft/nanoserver:10.0.14393.1480
+FROM microsoft/nanoserver:10.0.14393.1593
 WORKDIR /app
 COPY --from=build-env /app/out ./
 ENTRYPOINT ["dotnetapp.exe"]
