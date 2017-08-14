@@ -1,30 +1,67 @@
-dotnetapp-dev Sample
-====================
+# .NET Core Development Sample
 
-The dotnetapp-dev sample demonstrates how you can build and run the dotnetapp sample using the [.NET Core SDK Docker image](https://hub.docker.com/r/microsoft/dotnet/). It's a great option for iterative development if you want to use a container as your development environment. It's also great way to get started with .NET Core, because of the convenience and simplicity. You don't even need .NET Core installed on your local machine to use it.  
+This .NET Core Docker sample demonstrates how to use Docker in your .NET Core development process. The sample works with both Linux and Windows containers.
 
-The instructions assume that you already have [.NET Core 1.1](https://www.microsoft.com/net/download/core#/sdk), [Git](https://git-scm.com/downloads), and [Docker](https://www.docker.com/products/docker) installed. They also assume you already know how to target Linux or Windows containers. Please do try both image types. You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers).
+The [sample Dockerfile](Dockerfile) creates a .NET Core application image based off of the [.NET Core SDK Docker base image](https://hub.docker.com/r/microsoft/dotnet/). It builds and runs the application with the same image, which is a useful strategy for interative development but not optimal for production. Take a look at the [.NET Core Production Sample](../dotnetapp-prod/README.md) or [ASP.NET Core Production Sample](../aspnetapp/README.md) for production-oriented samples.
 
-Instructions
-------------
+This sample requires [Docker 17.06](https://docs.docker.com/release-notes/docker-ce) or later of the [Docker client](https://www.docker.com/products/docker). You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers). The instructions assume you have the [Git](https://git-scm.com/downloads) client installed.
 
-First, prepare your environment by cloning the repository and navigating to the sample:
+## Getting the sample
+
+The easiest way to get the sample is by cloning the samples repository with git, using the following instructions. You can also just download the repository (it is small) as a zip from the [.NET Core Docker samples](https://github.com/dotnet/dotnet-docker-samples/) respository.
 
 ```console
 git clone https://github.com/dotnet/dotnet-docker-samples/
-cd dotnet-docker-samples/dotnetapp-dev
 ```
 
-Follow these steps to run this sample locally:
+## Build and run the sample with Docker
+
+You can build and run the sample in Docker using the following commands. The instructions assume that you are in the root of the repository.
 
 ```console
-dotnet restore
+cd dotnetapp-dev
+docker build -t dotnetapp-dev .
+docker run --rm dotnetapp-dev Hello .NET Core from Docker
+```
+
+Note: The instructions above work for both Linux and Windows containers. The .NET Core docker images use [multi-arch tags](https://github.com/dotnet/announcements/issues/14), which abstract away different operating system choices for most use-cases.
+
+## Build and run the sample locally
+
+You can build and run the sample locally with the [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/core) using the following instructions. The instructions assume that you are in the root of the repository.
+
+```console
+cd dotnetapp-dev
 dotnet run Hello .NET Core
 ```
 
-Follow these steps to run this sample in a Linux or Windows container environment:
+You can produce an application that is ready to deploy to production locally using the following command.
 
 ```console
-docker build -t dotnetapp .
-docker run dotnetapp Hello .NET Core from Docker
+dotnet publish -c release -o published
 ```
+
+You can run the application on **Windows** using the following command.
+
+```console
+dotnet published\dotnetapp.dll
+```
+
+You can run the application on **Linux or macOS** using the following command.
+
+```console
+dotnet published/dotnetapp.dll
+```
+
+Note: The `-c release` argument builds the application in release mode (the default is debug mode). See the [dotnet run reference](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) for more information on commandline parameters.
+
+## Docker Images used in this sample
+
+The following Docker images are used in this sample
+
+* [microsoft/dotnet:2.0-sdk](https://hub.docker.com/r/microsoft/dotnet)
+
+## Related Resources
+
+* [.NET Core Docker samples](../README.md)
+* [.NET Framework Docker samples](https://github.com/Microsoft/dotnet-framework-docker-samples)

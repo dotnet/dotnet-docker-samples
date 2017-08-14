@@ -8,10 +8,10 @@ RUN dotnet restore
 
 # copy everything else and build
 COPY . ./
-RUN dotnet publish -c Release -r win-x64 -o out
+RUN dotnet publish -c Release -r linux-arm -o out
 
 # build runtime image
-FROM microsoft/nanoserver:10.0.14393.1593
+FROM microsoft/dotnet:2.0.0-runtime-stretch-arm32v7
 WORKDIR /app
 COPY --from=build-env /app/out ./
-ENTRYPOINT ["dotnetapp.exe"]
+ENTRYPOINT ["dotnet", "dotnetapp.dll"]
