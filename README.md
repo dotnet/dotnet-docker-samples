@@ -48,6 +48,7 @@ The following samples show different ways to use .NET Core images.
 
 * [.NET Core Docker Production Sample](dotnetapp-prod) - This sample includes instructions for running a runtime image with Linux on a Raspberry Pi.
 * [.NET Core self-contained application Docker Production Sample](dotnetapp-selfcontained) - This sample includes instructions for running a self-contained image with Linux on a Raspberry Pi.
+* Related: See [.NET Core on Raspberry Pi](https://github.com/dotnet/core/blob/master/samples/RaspberryPiInstructions.md)
 
 ## Related Repositories
 
