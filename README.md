@@ -1,6 +1,8 @@
 # .NET Core Docker Samples
 
-This repo contains samples that demonstrate various .NET Core Docker configurations, which you can use as the basis of your own Docker images. These samples depend on the [.NET Core Docker images](https://hub.docker.com/r/microsoft/dotnet/) on Docker Hub, provided by the .NET Team at Microsoft.
+This repo contains samples that demonstrate various .NET Core Docker configurations, which you can use as the basis of your own Docker images. They are also generally useful .NET Core samples and provide instructions for use with and without Docker.
+
+These samples depend on the [.NET Core Docker images](https://hub.docker.com/r/microsoft/dotnet/) on Docker Hub, provided by the .NET Team at Microsoft.
 
 Docker uses [docker/whalesay](https://hub.docker.com/r/docker/whalesay/) as a getting started sample. The .NET Core Team at Microsoft uses [dotnetbot](https://github.com/dotnet-bot), which is the mascot for .NET open source projects. Got something to say? Both whalesay and dotnetbot are great listeners. The [dotnetapp-dev](dotnetapp-dev), [dotnetapp-prod](dotnetapp-prod), and [dotnetapp-selfcontained](dotnetapp-selfcontained) samples all simply print a "Welcome!" message to the console. The [aspnetapp](aspnetapp) sample starts a basic ASP.NET Core website running in a container that you can browse to locally.
 
