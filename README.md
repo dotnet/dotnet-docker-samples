@@ -14,13 +14,13 @@ You need to have the [.NET Core SDK](https://www.microsoft.com/net/download/core
 
 You can run a [sample application](https://hub.docker.com/r/microsoft/dotnet-samples/) that runs from a pre-built image that has been published to Docker Hub. The source of this sample application is the [dotnetapp-prod](dotnetapp-prod) sample.
 
-To run the **Linux* image:
+To run the **Linux** image:
 
 ```console
 docker run microsoft/dotnet-samples
 ```
 
-To run the **Windows* image:
+To run the **Windows** image:
 
 ```console
 docker run microsoft/dotnet-samples:dotnetapp-nanoserver
@@ -39,12 +39,13 @@ The following samples show different ways to use .NET Core images.
 ### Production
 
 * [.NET Core Docker Production Sample](dotnetapp-prod) - This sample is good for production since it relies on the .NET Core Runtime image, not the larger .NET Core SDK image. Most apps only need the runtime, reducing the size of your application image.
-* [.NET Core self-contained application Docker Production Samp](dotnetapp-selfcontained) - This sample is also good for production scenarios since it relies on an operating system image (without .NET Core). [Self-contained .NET Core apps](https://docs.microsoft.com/dotnet/articles/core/deploying/) include .NET Core as part of the app and not as a centrally installed component in a base image.
+* [.NET Core self-contained application Docker Production Sample](dotnetapp-selfcontained) - This sample is also good for production scenarios since it relies on an operating system image (without .NET Core). [Self-contained .NET Core apps](https://docs.microsoft.com/dotnet/articles/core/deploying/) include .NET Core as part of the app and not as a centrally installed component in a base image.
 * [ASP.NET Core Docker Production Sample](aspnetapp) - This samples demonstrates a Dockerized ASP.NET Core Web App.
 
 ### ARM32 / Raspberry Pi
 
 * [.NET Core Docker Production Sample](dotnetapp-prod) - This sample includes instructions for running a runtime image with Linux on a Raspberry Pi.
+* [.NET Core self-contained application Docker Production Sample](dotnetapp-selfcontained) - This sample includes instructions for running a self-contained image with Linux on a Raspberry Pi.
 
 ## Related Repositories
 
