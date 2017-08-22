@@ -46,7 +46,7 @@ The goal of this section is to create and run a Docker .NET Core runtime-based i
 * Build app on X64 and copy via scp (or pscp) to ARM32 device and then build and run a Docker runtime image on the ARM32 device, or
 * Build final ARM32 image on Windows, push image to a Docker registry and then pull and run from the ARM32 device.
 
-The second option is only supported on Windows. Linux and macOS user must use the first option. For simplicity, the Windows option is provided below.
+The second option is only supported on Windows and macOS. Linux users must use the first option. For simplicity, the first option is provided below.
 
 The instructions assume that you are in the root of the repository.
 
@@ -55,10 +55,9 @@ Type the following commands in Docker "Linux mode" on Windows. The instructions 
 You need to be signed into the Docker client to `docker push` to Docker Hub.
 
 ```console
-cd dotnetapp-prod
-docker build -t dotnetapp-selfcontained-arm32 -f Dockerfile.arm32 .
-docker tag dotnetapp-selfcontained-arm32 mydockername/dotnetapp-selfcontained-arm32
-docker push
+cd dotnetapp-selfcontained
+docker build -t mydockername/dotnetapp-selfcontained-arm32 -f Dockerfile.arm32 .
+docker push mydockername/dotnetapp-selfcontained-arm32
 ```
 
 Switch to your Raspberry Pi, with Linux and Docker installed. Type the following command.

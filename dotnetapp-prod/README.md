@@ -45,9 +45,8 @@ You need to be signed into the Docker client to `docker push` to Docker Hub.
 
 ```console
 cd dotnetapp-prod
-docker build -t dotnetapp-prod-arm32 -f Dockerfile.arm32 .
-docker tag dotnetapp-prod-arm32 mydockername/dotnetapp-prod-arm32
-docker push
+docker build -t mydockername/dotnetapp-prod-arm32 -f Dockerfile.arm32 .
+docker push mydockername/dotnetapp-prod-arm32
 ```
 
 Switch to your Raspberry Pi, with Linux and Docker installed. Type the following command.
