@@ -30,7 +30,7 @@ After the application starts, visit `http://localhost:8000` in your web browser.
 
 Note: The `-p` argument maps port 8000 on you local machine to port 80 in the container (the form of the port mapping is `host:container`). See the [Docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for more information on commandline paramaters.
 
-### Deploy the sample to Azure Container Instance
+### Deploy the sample to Azure Container Instances
 
 You can deploy your ASP.NET Core application to [Azure Container Instances](https://azure.microsoft.com/en-us/blog/announcing-azure-container-instances/) with just a few commands. You can use the following instructions or use the [Azure Container Instances Quickstart](https://docs.microsoft.com/azure/container-instances/container-instances-quickstart)
 
