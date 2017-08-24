@@ -30,7 +30,7 @@ After the application starts, visit `http://localhost:8000` in your web browser.
 
 Note: The `-p` argument maps port 8000 on you local machine to port 80 in the container (the form of the port mapping is `host:container`). See the [Docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for more information on commandline paramaters.
 
-### Deploy the sample to Azure Constainer Instance
+### Deploy the sample to Azure Container Instance
 
 You can deploy your ASP.NET Core application to [Azure Container Instances](https://azure.microsoft.com/en-us/blog/announcing-azure-container-instances/) with just a few commands. You can use the following instructions or use the [Azure Container Instances Quickstart](https://docs.microsoft.com/azure/container-instances/container-instances-quickstart)
 
@@ -51,6 +51,13 @@ az container show --name aspnetapp --resource-group TestACIGroup
 The last step -- `az container show` -- will need to be repeated until `provisioningState` moves to `Succeeded`. At that point, collect the IP address from the `ip` field, as you can see in the following image, and then copy/paste the IP address into your browser. You should see the sample running.
 
 ![az container show -- successfully provisioned app](https://user-images.githubusercontent.com/2608468/29669868-b492c4e8-8899-11e7-82cc-d3ae1262a080.png)
+
+You can then delete your container and double check that no containers are left running in the resource group.
+
+```console
+az container delete --name aspnetapp --resource-group TestACIGroup
+az container list --resource-group TestACIGroup
+```
 
 ## Build and run the sample with Docker for Windows containers
 
