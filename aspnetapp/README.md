@@ -52,7 +52,7 @@ The last step -- `az container show` -- will need to be repeated until `provisio
 
 ![az container show -- successfully provisioned app](https://user-images.githubusercontent.com/2608468/29669868-b492c4e8-8899-11e7-82cc-d3ae1262a080.png)
 
-You can then delete your container and double check that no containers are left running in the resource group.
+You will then want to delete your container and double check that no containers are left running in the resource group.
 
 ```console
 az container delete --name aspnetapp --resource-group TestACIGroup
