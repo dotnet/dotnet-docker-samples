@@ -30,6 +30,28 @@ After the application starts, visit `http://localhost:8000` in your web browser.
 
 Note: The `-p` argument maps port 8000 on you local machine to port 80 in the container (the form of the port mapping is `host:container`). See the [Docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for more information on commandline paramaters.
 
+### Deploy the sample to Azure Constainer Instance
+
+You can deploy your ASP.NET Core application to [Azure Container Instances](https://azure.microsoft.com/en-us/blog/announcing-azure-container-instances/) with just a few commands. You can use the following instructions or use the [Azure Container Instances Quickstart](https://docs.microsoft.com/azure/container-instances/container-instances-quickstart)
+
+These instructions require:
+
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed,which is supported on Windows, macOS and Linux.
+* That you have run the commands above, and that you have an `aspnetapp` image created.
+* A docker registry account, such as [Docker Hub](https://hub.docker.com/). Change "richlander" in the following example to your account.
+
+```console
+docker tag aspnetapp richlander/aspnetapp
+docker push richlander/aspnetapp
+az group create --name TestACIGroup --location eastus
+az container create --name aspnetapp --image richlander/aspnetapp --resource-group TestACIGroup --ip-address public
+az container show --name aspnetapp --resource-group TestACIGroup
+```
+
+The last step -- `az container show` -- will need to be repeated until `provisioningState` moves to `Succeeded`. At that point, collect the IP address from the `ip` field, as you can see in the following image, and then copy/paste the IP address into your browser. You should see the sample running.
+
+![az container show -- successfully provisioned app](https://user-images.githubusercontent.com/2608468/29669868-b492c4e8-8899-11e7-82cc-d3ae1262a080.png)
+
 ## Build and run the sample with Docker for Windows containers
 
 You can build and run the sample in Docker using Windows containers using the following commands. The instructions assume that you are in the root of the repository.
