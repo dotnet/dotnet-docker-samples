@@ -10,7 +10,8 @@ The sample uses the [Docker multi-stage build feature](https://github.com/dotnet
 
 This sample requires [Docker 17.06](https://docs.docker.com/release-notes/docker-ce) or later of the [Docker client](https://www.docker.com/products/docker). You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers). The instructions assume you have the [Git](https://git-scm.com/downloads) client installed.
 
-The sample uses an experimental linker for removing code that your final application does not need. The linker helps to produce Docker images that are significantly smaller. The linker is not required and can be removed from the sample or disabled on the commandline if you do not want to use it.
+## Getting the sample
+The sample uses an [experimental linker](https://github.com/dotnet/core/blob/master/samples/linker-instructions.md) for removing code that your final application does not need. The linker helps to produce Docker images that are significantly smaller. The [linker](https://dotnet.myget.org/feed/dotnet-core/package/nuget/Illink.Tasks) is not required and can be [removed](https://github.com/dotnet/dotnet-docker-samples/blob/master/dotnetapp-selfcontained/dotnetapp.csproj#L7) from the sample or disabled on the commandline if you do not want to use it.
 
 ## Getting the sample
 
