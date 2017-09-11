@@ -1,0 +1,40 @@
+{
+  "repos": [
+    {
+      "name": "microsoft/dotnet-samples",
+      "readmePath": "README.DockerHub.md",
+      "images": [
+        {
+          "sharedTags": {
+            "dotnetapp": {},
+            "latest": {}
+          },
+          "platforms": [
+            {
+              "dockerfile": "dotnetapp-prod/Dockerfile",
+              "os": "windows",
+              "tags": {
+                "dotnetapp-nanoserver": {}
+              }
+            },
+            {
+              "dockerfile": "dotnetapp-prod/Dockerfile",
+              "os": "linux",
+              "tags": {
+                "dotnetapp-stretch": {}
+              }
+            },
+            {
+              "architecture": "arm",
+              "dockerfile": "dotnetapp-prod/Dockerfile.arm32",
+              "os": "linux",
+              "tags": {
+                "dotnetapp-stretch-arm32v7": {}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

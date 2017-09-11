@@ -1,0 +1,1 @@
+The contents of the [build-pipeline](build-pipeline) folder are used by the .NET Core engineering infrastructure to build and publish the sample Docker images to [microsoft/dotnet-samples](https://hub.docker.com/r/microsoft/dotnet-samples/).

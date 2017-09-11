@@ -1,0 +1,60 @@
+{
+  "Repository": "dotnet-docker-samples",
+  "Definitions": {
+    "Path": ".",
+    "Type": "VSTS",
+    "BaseUrl": "https://devdiv.visualstudio.com/DefaultCollection",
+    "SkipBranchAndVersionOverrides": "false"
+  },
+  "Pipelines": [
+    {
+      "Name": "Build Linux AMD64 Images",
+      "Parameters": {
+        "TreatWarningsAsErrors": "false"
+      },
+      "Definitions": [
+        {
+          "Name": "dotnet-docker-samples-linux-amd64-images"
+        }
+      ]
+    },
+    {
+      "Name": "Build Linux ARM32v7 Images",
+      "Parameters": {
+        "TreatWarningsAsErrors": "false"
+      },
+      "Definitions": [
+        {
+          "Name": "dotnet-docker-samples-linux-arm32v7-images"
+        }
+      ]
+    },
+    {
+      "Name": "Build Windows AMD64 Images",
+      "Parameters": {
+        "TreatWarningsAsErrors": "false"
+      },
+      "Definitions": [
+        {
+          "Name": "dotnet-docker-samples-windows-amd64-images"
+        }
+      ]
+    },
+    {
+      "Name": "Post Image Build",
+      "Parameters": {
+        "TreatWarningsAsErrors": "false"
+      },
+      "Definitions": [
+        {
+          "Name": "dotnet-docker-samples-post-image-build"
+        }
+      ],
+      "DependsOn": [
+        "Build Windows AMD64 Images",
+        "Build Linux AMD64 Images",
+        "Build Linux ARM32v7 Images"
+      ]
+    }
+  ]
+}
