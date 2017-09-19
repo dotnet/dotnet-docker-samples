@@ -125,23 +125,18 @@
       "value": "microsoft/dotnet-buildtools-prereqs:image-builder-jessie-20170824103849"
     },
     "image-builder.args": {
-      "value": "build --manifest manifest.json --push --username $(PB.docker.username) --password $(PB.docker.password) $(PB.image-builder.customCommonArgs)"
+      "value": "build --manifest manifest.json --push --username $(PB.docker.username) --password $(PB.docker.password) $(PB.image-builder.customCommonArgs)",
+      "allowOverride": true
     },
     "image-builder.containerName": {
       "value": "$(Build.DefinitionName)-$(Build.BuildId)"
     },
     "PB.docker.password": {
       "value": null,
-      "isSecret": true,
-      "allowOverride": true
-    },
-    "PB.docker.username": {
-      "value": null,
-      "allowOverride": true
+      "isSecret": true
     },
     "PB.image-builder.customCommonArgs": {
-      "value": "",
-      "allowOverride": true
+      "value": ""
     }
   },
   "demands": [
