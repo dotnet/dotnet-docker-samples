@@ -36,7 +36,24 @@
       },
       "Definitions": [
         {
-          "Name": "dotnet-docker-samples-windows-amd64-images"
+          "Name": "dotnet-docker-samples-windows-amd64-images",
+          "Parameters": {
+            "PB.image-builder.customCommonArgs": "--os-version 10.0.14393"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Build Windows 1709 AMD64 Images",
+      "Parameters": {
+        "TreatWarningsAsErrors": "false"
+      },
+      "Definitions": [
+        {
+          "Name": "dotnet-docker-samples-windows-1709-amd64-images",
+          "Parameters": {
+            "PB.image-builder.customCommonArgs": "--os-version 10.0.16299"
+          }
         }
       ]
     },
@@ -51,6 +68,7 @@
         }
       ],
       "DependsOn": [
+        "Build Windows 1709 AMD64 Images",
         "Build Windows AMD64 Images",
         "Build Linux AMD64 Images",
         "Build Linux ARM32v7 Images"

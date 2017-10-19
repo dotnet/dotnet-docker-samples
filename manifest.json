@@ -12,16 +12,25 @@
           "platforms": [
             {
               "dockerfile": "dotnetapp-prod/Dockerfile",
+              "os": "linux",
+              "tags": {
+                "dotnetapp-stretch": {}
+              }
+            },
+            {
+              "dockerfile": "dotnetapp-prod/Dockerfile",
               "os": "windows",
+              "osVersion": "10.0.14393",
               "tags": {
                 "dotnetapp-nanoserver": {}
               }
             },
             {
               "dockerfile": "dotnetapp-prod/Dockerfile",
-              "os": "linux",
+              "os": "windows",
+              "osVersion": "10.0.16299",
               "tags": {
-                "dotnetapp-stretch": {}
+                "dotnetapp-nanoserver-1709": {}
               }
             },
             {

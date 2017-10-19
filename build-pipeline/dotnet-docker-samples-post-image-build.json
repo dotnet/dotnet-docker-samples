@@ -141,7 +141,7 @@
       "allowOverride": true
     },
     "image-builder.imageName": {
-      "value": "microsoft/dotnet-buildtools-prereqs:image-builder-jessie-20170824103849"
+      "value": "microsoft/dotnet-buildtools-prereqs:image-builder-jessie-20171020090934"
     },
     "image-builder.common.args": {
       "value": "--manifest manifest.json --username $(PB.docker.username) --password $(PB.docker.password) $(PB.image-builder.customCommonArgs)",
@@ -190,7 +190,7 @@
   "jobCancelTimeoutInMinutes": 5,
   "repository": {
     "properties": {
-      "cleanOptions": "0",
+      "cleanOptions": "3",
       "gitLfsSupport": "false",
       "skipSyncSource": "false",
       "reportBuildStatus": "true",
@@ -207,7 +207,7 @@
     "name": "dotnet/dotnet-docker-samples",
     "url": "https://github.com/dotnet/dotnet-docker-samples.git",
     "defaultBranch": "master",
-    "clean": "false",
+    "clean": "true",
     "checkoutSubmodules": false
   },
   "processParameters": {},
