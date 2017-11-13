@@ -22,7 +22,7 @@
               "os": "windows",
               "osVersion": "10.0.14393",
               "tags": {
-                "dotnetapp-nanoserver": {}
+                "dotnetapp-nanoserver-sac2016": {}
               }
             },
             {
