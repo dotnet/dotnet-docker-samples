@@ -44,10 +44,10 @@ docker run dotnetapp-selfcontained Hello .NET Core from Docker
 
 The goal of this section is to create and run a Docker .NET Core runtime-based image on a Raspberry Pi running Linux. The .NET Core SDK does not run on the Linux + ARM32 configuration. As a result, the instructions used for X64 don't work. There are multiple ways to get around this limitation, primarily:
 
-* Build app on X64 and copy via scp (or pscp) to ARM32 device and then build and run a Docker runtime image on the ARM32 device, or
-* Build final ARM32 image on Windows, push image to a Docker registry and then pull and run from the ARM32 device.
+* Build final ARM32 image on Windows, push image to a Docker registry and then pull and run from the ARM32 device, or
+* Build app on X64 and copy via scp (or pscp) to ARM32 device and then build and run a Docker runtime image on the ARM32 device
 
-The second option is only supported on Windows and macOS. Linux users must use the first option. For simplicity, the first option is provided below.
+The first option is only supported on Windows and macOS. Linux users must use the second option. For simplicity, the first option is provided below.
 
 The instructions assume that you are in the root of the repository.
 
