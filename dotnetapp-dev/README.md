@@ -39,7 +39,8 @@ The unit tests in this sample will run as part of the the `docker build` command
 public void Test1()
 {
     var inputString = "Dotnet-bot: Welcome to using .NET Core!";
-    var expectedString = "Dotnet-bot: Welcome to using .NET Core!";
+    // var expectedString = "!eroC TEN. gnisu ot emocleW :tob-tentoD";
+    var expectedString = "arbitrarily different string - won't match";
     var actualString = ReverseUtil.ReverseString(inputString);
     Assert.True(actualString == expectedString, "The input string was not reversed correctly.");
 }
