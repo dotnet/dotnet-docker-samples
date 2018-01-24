@@ -2,7 +2,7 @@
 
 This .NET Core Docker sample demonstrates a best practice pattern for building Docker images for .NET Core apps for production. The sample works with both Linux and Windows containers.
 
-The [sample Dockerfile](Dockerfile) creates an .NET Core application Docker image based off of the [.NET Core Runtime Docker base image](https://hub.docker.com/r/microsoft/dotnet/).
+The [sample Dockerfile](Dockerfile) creates a .NET Core application Docker image based off of the [.NET Core Runtime Docker base image](https://hub.docker.com/r/microsoft/dotnet/).
 
 It uses the [Docker multi-stage build feature](https://github.com/dotnet/announcements/issues/18) to build the sample in a container based on the larger [.NET Core SDK Docker base image](https://hub.docker.com/r/microsoft/dotnet/) and then copies the final build result into a Docker image based on the smaller [.NET Core Docker Runtime base image](https://hub.docker.com/r/microsoft/dotnet/). The SDK image contains tools that are required to build applications while the runtime image does not.
 
@@ -10,11 +10,13 @@ This sample requires [Docker 17.06](https://docs.docker.com/release-notes/docker
 
 ## Getting the sample
 
-The easiest way to get the sample is by cloning the samples repository with git, using the following instructions. You can also just download the repository (it is small) as a zip from the [.NET Core Docker samples](https://github.com/dotnet/dotnet-docker-samples/) respository.
+The easiest way to get the sample is by cloning the samples repository with git, using the following instructions.
 
 ```console
 git clone https://github.com/dotnet/dotnet-docker-samples/
 ```
+
+You can also [download the repository as a zip](https://github.com/dotnet/dotnet-docker-samples/archive/master.zip).
 
 ## Build and run the sample with Docker
 
@@ -67,19 +69,19 @@ dotnet run Hello .NET Core
 You can produce an application that is ready to deploy to production locally using the following command.
 
 ```console
-dotnet publish -c release -o published
+dotnet publish -c release -o out
 ```
 
 You can run the application on **Windows** using the following command.
 
 ```console
-dotnet published\dotnetapp.dll
+dotnet out\dotnetapp.dll
 ```
 
 You can run the application on **Linux or macOS** using the following command.
 
 ```console
-dotnet published/dotnetapp.dll
+dotnet out/dotnetapp.dll
 ```
 
 Note: The `-c release` argument builds the application in release mode (the default is debug mode). See the [dotnet run reference](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) for more information on commandline parameters.

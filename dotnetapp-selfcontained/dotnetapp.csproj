@@ -4,6 +4,6 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ILLink.Tasks" Version="0.1.4-preview-906439" />
+    <PackageReference Include="ILLink.Tasks" Version="0.1.4-preview-981901" />
   </ItemGroup>
 </Project>

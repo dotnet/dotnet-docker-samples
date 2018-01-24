@@ -4,22 +4,25 @@ This .NET Core Docker sample demonstrates a best practice pattern for building D
 
 This [sample Dockerfile for Linux](Dockerfile) creates an .NET Core application image based off the [.NET Core Runtime Dependencies Docker base image](https://hub.docker.com/r/microsoft/dotnet/), which is based on [Debian 9 (Stretch) base image](https://hub.docker.com/_/debian/).
 
-This [sample Dockerfile for Windows Nanoserver](Dockerfile.nano) creates an .NET Core application image based off the [Windows Nanoserver base image](https://hub.docker.com/r/microsoft/nanoserver/).
+This [sample Dockerfile for Windows Nanoserver](Dockerfile.nano) creates a .NET Core application image based off the [Windows Nanoserver base image](https://hub.docker.com/r/microsoft/nanoserver/).
 
 The sample uses the [Docker multi-stage build feature](https://github.com/dotnet/announcements/issues/18) for Linux and Windows to build the sample in a container based on the larger [.NET Core SDK Docker base image](https://hub.docker.com/r/microsoft/dotnet/) and then copies the final build result into a smaller Docker image based on the appropriate base image mentioned above (based whether you are using Windows or Linux containers).
 
 This sample requires [Docker 17.06](https://docs.docker.com/release-notes/docker-ce) or later of the [Docker client](https://www.docker.com/products/docker). You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers). The instructions assume you have the [Git](https://git-scm.com/downloads) client installed.
 
 ## Getting the sample
-The sample uses an [experimental linker](https://github.com/dotnet/core/blob/master/samples/linker-instructions.md) for removing code that your final application does not need. The linker helps to produce Docker images that are significantly smaller. The [linker](https://dotnet.myget.org/feed/dotnet-core/package/nuget/Illink.Tasks) is not required and can be [removed](https://github.com/dotnet/dotnet-docker-samples/blob/master/dotnetapp-selfcontained/dotnetapp.csproj#L7) from the sample or [disabled on the commandline](https://github.com/dotnet/core/blob/master/samples/linker-instructions.md#linker-switches) if you do not want to use it.
 
-## Getting the sample
-
-The easiest way to get the sample is by cloning the samples repository with git, using the following instructions. You can also just download the repository (it is small) as a zip from the [.NET Core Docker samples](https://github.com/dotnet/dotnet-docker-samples/) respository.
+The easiest way to get the sample is by cloning the samples repository with git, using the following instructions.
 
 ```console
 git clone https://github.com/dotnet/dotnet-docker-samples/
 ```
+
+You can also [download the repository as a zip](https://github.com/dotnet/dotnet-docker-samples/archive/master.zip).
+
+## Producing small applications with the .NET Linker
+
+The sample uses an [experimental linker](https://github.com/dotnet/core/blob/master/samples/linker-instructions.md) for removing code that your final application does not need. The linker helps to produce Docker images that are significantly smaller. The [linker](https://dotnet.myget.org/feed/dotnet-core/package/nuget/Illink.Tasks) is not required and can be [removed](https://github.com/dotnet/dotnet-docker-samples/blob/master/dotnetapp-selfcontained/dotnetapp.csproj#L7) from the sample or [disabled on the commandline](https://github.com/dotnet/core/blob/master/samples/linker-instructions.md#linker-switches) if you do not want to use it.
 
 ## Build and run the sample with Docker for Linux containers
 
@@ -40,6 +43,7 @@ cd dotnetapp-selfcontained
 docker build -t dotnetapp-selfcontained -f Dockerfile.nano .
 docker run dotnetapp-selfcontained Hello .NET Core from Docker
 ```
+
 ## Build on Windows or macOS and run the sample with Docker on Linux + ARM32 (Raspberry Pi)
 
 The goal of this section is to create and run a Docker .NET Core runtime-based image on a Raspberry Pi running Linux. The .NET Core SDK does not run on the Linux + ARM32 configuration. As a result, the instructions used for X64 don't work. There are multiple ways to get around this limitation, primarily:
@@ -81,8 +85,8 @@ dotnet run
 You can publish an application locally that is ready to deploy to production using the following commands.
 
 ```console
-dotnet publish -c release -r win-x64 -o published-selfcontained-win-x64
-published-selfcontained-win-x64\dotnetapp.exe
+dotnet publish -c release -r win-x64 -o selfcontained-win-x64
+selfcontained-win-x64\dotnetapp.exe
 ```
 
 Note: The `-c release` argument builds the application in release mode (the default is debug mode). See the [dotnet run reference](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) for more information on commandline parameters.

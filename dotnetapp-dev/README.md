@@ -38,19 +38,19 @@ dotnet run Hello .NET Core
 You can produce an application that is ready to deploy to production locally using the following command.
 
 ```console
-dotnet publish -c release -o published
+dotnet publish -c release -o out
 ```
 
 You can run the application on **Windows** using the following command.
 
 ```console
-dotnet published\dotnetapp.dll
+dotnet out\dotnetapp.dll
 ```
 
 You can run the application on **Linux or macOS** using the following command.
 
 ```console
-dotnet published/dotnetapp.dll
+dotnet out/dotnetapp.dll
 ```
 
 Note: The `-c release` argument builds the application in release mode (the default is debug mode). See the [dotnet run reference](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) for more information on commandline parameters.

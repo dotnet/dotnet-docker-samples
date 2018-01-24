@@ -10,11 +10,13 @@ This sample requires [Docker 17.06](https://docs.docker.com/release-notes/docker
 
 ## Getting the sample
 
-The easiest way to get the sample is by cloning the samples repository with git, using the following instructions. You can also just download the repository (it is small) as a zip from the [.NET Core Docker samples](https://github.com/dotnet/dotnet-docker-samples/) respository.
+The easiest way to get the sample is by cloning the samples repository with git, using the following instructions.
 
 ```console
 git clone https://github.com/dotnet/dotnet-docker-samples/
 ```
+
+You can also [download the repository as a zip](https://github.com/dotnet/dotnet-docker-samples/archive/master.zip).
 
 ## Build and run the sample with Docker for Linux containers
 
@@ -23,7 +25,7 @@ You can build and run the sample in Docker using Linux containers using the foll
 ```console
 cd aspnetapp
 docker build -t aspnetapp .
-docker run -it --rm -p 8000:80 --name aspnetcore_sample aspnetapp
+docker run -it --rm -p 8000:80 aspnetapp
 ```
 
 After the application starts, visit `http://localhost:8000` in your web browser.
@@ -47,8 +49,6 @@ You must navigate to the container IP (as opposed to http://localhost) in your b
 1. Run `docker exec aspnetcore_sample ipconfig`.
 1. Copy the container IP address and paste into your browser (for example, `172.29.245.43`).
 
-Note: `docker exec` supports identifying containers with name or hash. The name is used above.
-
 See the following example of how to get the IP address of a running Windows container.
 
 ```console
@@ -66,7 +66,14 @@ Ethernet adapter Ethernet:
    Default Gateway . . . . . . . . . : 172.29.240.1
 ```
 
-Note: `Docker exec` runs a new command in a running command. See the [Docker exec reference](https://docs.docker.com/engine/reference/commandline/exec/) for more information on commandline paramaters.
+Note: [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) supports identifying containers with name or hash. The name is used above. It runs a new command (as opposed to the [entrypoint](https://docs.docker.com/engine/reference/builder/#entrypoint)) in a running container.
+
+Some people prefer using `docker inspect` for this same purpose. See the following example, below:
+
+```console
+C:\git\dotnet-docker-samples\aspnetapp>docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" aspnetcore_sample
+172.25.157.148
+```
 
 ## Build and run the sample locally
 
@@ -82,19 +89,19 @@ After the application starts, visit `http://localhost:8000` in your web browser.
 You can produce an application that is ready to deploy to production locally using the following command.
 
 ```console
-dotnet publish -c release -o published
+dotnet publish -c release -o out
 ```
 
 You can run the application on **Windows** using the following command.
 
 ```console
-dotnet published\aspnetapp.dll
+dotnet out\aspnetapp.dll
 ```
 
 You can run the application on **Linux or macOS** using the following command.
 
 ```console
-dotnet published/aspnetapp.dll
+dotnet out/aspnetapp.dll
 ```
 
 Note: The `-c release` argument builds the application in release mode (the default is debug mode). See the [dotnet run reference](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) for more information on commandline parameters.
