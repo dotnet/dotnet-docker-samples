@@ -32,7 +32,7 @@ Note: The instructions above work for both Linux and Windows containers. The .NE
 
 ## Run unit tests as part of `docker build`
 
-The unit tests will have run as part of the the `docker build` command listed above. You can make the unit test fail by changing the [unit test](tests/UnitTest1.cs) to match the test below.
+The unit tests in this sample will run as part of the the `docker build` command listed above. You can make the unit test fail by changing the [unit test](tests/UnitTest1.cs) to match the test below. It is good to do this so that you can see the behavior of when tests fail as part of `docker build`.
 
 ```csharp
 [Fact]
@@ -53,12 +53,13 @@ docker build -t dotnetapp-dev .
 
 ## Run unit tests as part of `docker run`
 
-The sample runs unit tests as part of `docker build`, as described above. That's useful as a means of getting feedback during `build` (the build will fail), but there isn't an easy way to get the test logs. The sample exposes a `testrunner` stage that you can build and then run explicity. This is why there are two `ENTRYPOINT` lines in the [Dockerfile](Dockerfile).
+You can can also run the unit tests in the sample as part of `docker run`, with the primary benefit being that it is easier to harvest test logs. Running tests as part of `docker build` is useful as a means of getting early feedback, but it only really gives you pass/fail feedback since any useful information is primarily available solely via the console/terminal (not great for automation). The sample exposes a `testrunner` stage that you can build and then run explicity. This is why there are two `ENTRYPOINT` lines in the [Dockerfile](Dockerfile). You can then volume mount the appropriate directories in order to harvest test logs.
 
-You can build and run the sample in Docker using the following commands. The instructions assume that you are in the root of the repository. They also assume a location for the repo (please change to fit your environment).
+You can build and run the sample in Docker using the following commands. The instructions assume a location for the repo (please change to fit your environment).
+
+First build an image, just to and including the `testrunner` stage.
 
 ```console
-cd dotnetapp-dev
 docker build --target testrunner -t dotnetapp-dev:test .
 ```
 
