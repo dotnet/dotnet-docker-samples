@@ -121,6 +121,7 @@ Note: The `-c release` argument builds the application in release mode (the defa
 The following Docker images are used in this sample
 
 * [microsoft/dotnet:2.0-sdk](https://hub.docker.com/r/microsoft/dotnet)
+* [microsoft/dotnet:2.0-runtime](https://hub.docker.com/r/microsoft/dotnet)
 
 ## Related Resources
 
