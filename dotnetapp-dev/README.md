@@ -39,7 +39,8 @@ The unit tests in this sample will run as part of the the `docker build` command
 public void Test1()
 {
     var inputString = "Dotnet-bot: Welcome to using .NET Core!";
-    var expectedString = "Dotnet-bot: Welcome to using .NET Core!";
+    // var expectedString = "!eroC TEN. gnisu ot emocleW :tob-tentoD";
+    var expectedString = "arbitrarily different string - won't match";
     var actualString = ReverseUtil.ReverseString(inputString);
     Assert.True(actualString == expectedString, "The input string was not reversed correctly.");
 }
@@ -83,7 +84,9 @@ You can run the sample on **macOS** or **Linux** using the following command. Yo
 docker run --rm -v "$(pwd)"/TestResults:/app/tests/TestResults dotnetapp-dev:test
 ```
 
-You should find a `.trx` file in the TestResults folder. You can open this file in Visual Studio to see the results of the test run. You can open in Visual Studio (File -> Open -> File)or double-click on the TRX file (if you have Visual Studio installed). There are other TRX file viewers available as well that you can search for.
+You should find a `.trx` file in the TestResults folder. You can open this file in Visual Studio to see the results of the test run, as you can see in the following image. You can open in Visual Studio (File -> Open -> File) or double-click on the TRX file (if you have Visual Studio installed). There are other TRX file viewers available as well that you can search for.
+
+![Visual Studio Test Results](https://user-images.githubusercontent.com/2608468/35361940-2f5ab914-0118-11e8-9c40-4f252f4568f0.png)
 
 The unit testing in this Dockerfile demonstrates a couple approaches to unit testing with Docker. If you adopt this Dockerfile, you don't need to use both or either of these approaches. They are patterns that we considered useful for the unit testing use case.
 
